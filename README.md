@@ -2,7 +2,14 @@
 Ferramenta gratuita desenvolvida especificamente para apoiar investigações envolvendo criptoativos. A Fenix surgiu a partir das dificuldades enfrentadas por profissionais ao se depararem com uma seed de recuperação e a necessidade de derivar endereços em profundidade suficiente para localizar saldos ocultos em carteiras digitais.
 
 <img width="1454" height="954" alt="image" src="https://github.com/user-attachments/assets/26a81b89-fe4e-4e94-869e-2449b502325e" />
+<p>
 
+<img width="1364" height="795" alt="image" src="https://github.com/user-attachments/assets/5a9e1cbd-0561-4633-bb35-c94ac3dcea01" />
 
+<img width="1308" height="812" alt="image" src="https://github.com/user-attachments/assets/fd8bb074-b0f1-43d8-93de-16d1f49c9063" />
+https://etherscan.io/apidashboard
+
+<img width="1434" height="606" alt="image" src="https://github.com/user-attachments/assets/2bd78b63-0d7c-4ac8-82c9-c2db0cfb983f" />
+https://www.trongrid.io/dashboard/keys
 
 [Guia Fênix.pdf](https://github.com/user-attachments/files/23291499/Guia.Fenix.pdf)
