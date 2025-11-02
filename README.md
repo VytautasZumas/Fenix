@@ -1,3 +1,5 @@
+<img width="311" height="245" alt="image" src="https://github.com/user-attachments/assets/4fc99c32-37d0-485c-ab53-86e055c7b1a5" />
+
 # Fenix
 Ferramenta gratuita desenvolvida especificamente para apoiar investigações envolvendo criptoativos. A Fenix surgiu a partir das dificuldades enfrentadas por profissionais ao se depararem com uma seed de recuperação e a necessidade de derivar endereços em profundidade suficiente para localizar saldos ocultos em carteiras de ativos virtuais.
 
@@ -5,7 +7,7 @@ Para uso imediato, basta executar o arquivo disponibilizado (compatível apenas 
 
 Os scripts fonte estão organizados nas demais pastas, sendo necessário possuir o Python instalado e realizar a instalação das bibliotecas listadas no arquivo requirements.txt.
 
-É imprescindível para o bom funcionamento do sistema a inserção das chaves de API da Etherscan e da Trongrid, a fim de permitir a consulta correta dos endereços gerados. É possível realizar o upload de um arquivo .txt contendo as chaves, o qual deve seguir o formato do arquivo modelo keys.txt disponível no repositório.
+# É imprescindível para o bom funcionamento do sistema a inserção das chaves de API da Etherscan e da Trongrid, a fim de permitir a consulta correta dos endereços gerados. É possível realizar o upload de um arquivo .txt contendo as chaves, o qual deve seguir o formato do arquivo modelo keys.txt disponível no repositório.
 
 <img width="1454" height="954" alt="image" src="https://github.com/user-attachments/assets/26a81b89-fe4e-4e94-869e-2449b502325e" />
 <p>
