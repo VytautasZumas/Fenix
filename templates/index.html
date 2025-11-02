@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fênix - Localizador de Ativos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>Fênix</h1>
+                <div class="header-meta">
+                    <span class="version">V.0.6</span>
+                    <p class="subtitle">Localizador de Ativos Digitais em Carteiras Cripto</p>
+                </div>
+            </div>
+            <div class="header-accent"></div>
+        </header>
+
+        <main class="main-content">
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔑</div>
+                    <h2>Dados de Entrada</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="seedPhrase">Seed Mnemônica (12 ou 24 palavras)</label>
+                        <textarea id="seedPhrase" class="form-control" rows="3" placeholder="Cole sua seed phrase aqui ou use o decodificador abaixo..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group horizontal">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="usePassphrase" name="usePassphrase">
+                                <label for="usePassphrase">Usar Passphrase Adicional (BIP39)</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="useSeed1248" name="useSeed1248">
+                                <label for="useSeed1248">Decodificar Placa 1248</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="passphraseGroup" style="display: none;">
+                        <label for="passphrase">Passphrase (Sensível a maiúsculas/minúsculas)</label>
+                        <input type="password" id="passphrase" class="form-control" placeholder="Insira sua passphrase opcional aqui...">
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚙️</div>
+                    <h2>Parâmetros de Derivação</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Redes/Blockchains</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="BTC" id="btcCheckbox" checked><label for="btcCheckbox">Bitcoin</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="ETH" id="eth" checked><label for="eth">Ethereum</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="BSC" id="bsc" checked><label for="bsc">BNB Chain</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="MATIC" id="matic" checked><label for="matic">Polygon</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="TRX" id="trx" checked><label for="trx">Tron</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="BASE" id="base" checked><label for="base">Base</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="OPTIMISM" id="optimism" checked><label for="optimism">Optimism</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="network" value="ARBITRUM" id="arbitrum" checked><label for="arbitrum">Arbitrum</label></div>
+                        </div>
+                    </div>
+                    
+                    <div class="btc-address-types">
+                        <label>Tipos de Endereço Bitcoin</label>
+                        <div class="checkbox-grid compact">
+                            <div class="checkbox-item"><input type="checkbox" name="btcAddressType" value="P2PKH" id="p2pkh" checked><label for="p2pkh">Legacy (1...)</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="btcAddressType" value="P2SH" id="p2sh" checked><label for="p2sh">SegWit (3...)</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="btcAddressType" value="BECH32" id="bech32" checked><label for="bech32">Native SegWit (bc1q...)</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="btcAddressType" value="TAPROOT" id="taproot" checked><label for="taproot">Taproot (bc1p...)</label></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="accountRange">Contas (Account)</label>
+                            <input type="text" id="accountRange" class="form-control" value="0">
+                            <small>Ex: 0, 1, 2 ou 0-5</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="indexRange">Índices (Address Index)</label>
+                            <input type="text" id="indexRange" class="form-control" value="0-10">
+                            <small>Ex: 0-100 ou 0, 5, 10</small>
+                        </div>
+                        <div class="form-group">
+                            <label>Cadeia (Change)</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item"><input type="checkbox" name="changeType" value="0" id="changeExternal" checked><label for="changeExternal">Externa (0)</label></div>
+                                <div class="checkbox-item"><input type="checkbox" name="changeType" value="1" id="changeInternal"><label for="changeInternal">Interna (1)</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔌</div>
+                    <h2>Chaves de API <span class="optional">(Opcional)</span></h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="apiKeyEthereum">EVM Chains (Etherscan)</label>
+                            <input type="text" id="apiKeyEthereum" class="form-control" placeholder="Chave para ETH, BSC, Polygon, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="apiKeyTron">TRON (TronGrid)</label>
+                            <input type="text" id="apiKeyTron" class="form-control" placeholder="Chave para rede Tron">
+                        </div>
+                        <div class="form-group">
+                            <label>Carregar de arquivo .txt</label>
+                            <div class="file-input-container">
+                                <label for="apiKeyUpload" class="btn btn-secondary file-upload-label">
+                                    <span class="btn-icon">📁</span>
+                                    Selecionar Arquivo
+                                </label>
+                                <input type="file" id="apiKeyUpload" accept=".txt">
+                                <span id="fileName" class="file-name-display">Nenhum arquivo selecionado.</span>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </section>
+            
+            <div class="actions-container">
+                <button id="searchButton" class="btn btn-primary" onclick="searchAddresses()">
+                    <span class="btn-icon">🔍</span>
+                    Buscar Ativos
+                </button>
+            </div>
+
+            <section class="results-area" style="display:none;">
+                 <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon">📊</div>
+                        <h2>Resultados da Busca <span id="loadingSpinner" class="spinner" style="display:none;"></span></h2>
+                    </div>
+                    <div class="card-body">
+                        <p id="errorMessage" class="error-message" style="display:none;"></p>
+                        
+                        <div class="summary-info">
+                            <div class="summary-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Endereços com atividade:</span>
+                                    <span class="stat-value" id="foundCount">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Valor Total Estimado:</span>
+                                    <span class="stat-value" id="totalUsdValue">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="summary-actions">
+                                <button class="btn btn-secondary" onclick="exportResults('csv')">
+                                    <span class="btn-icon">📄</span>
+                                    Exportar Visíveis (CSV)
+                                </button>
+                                <button class="btn btn-secondary" onclick="exportAllResultsToCsv()">
+                                    <span class="btn-icon">📋</span>
+                                    Exportar Todos (CSV)
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-container">
+                            <table id="resultsTable">
+                                <thead>
+                                    <tr>
+                                        <th class="address-col">Endereço</th>
+                                        <th class="network-col">Rede</th> 
+                                        <th class="status-col">Status</th>
+                                        <th class="value-col">Valor (USD)</th>
+                                        <th class="path-col">Caminho</th>
+                                        <th class="private-key-col">Chave Privada</th> 
+                                        <th class="explorer-col">Explorador</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="seed1248-panel-overlay" style="display: none;">
+        <div id="seed1248-panel">
+            <div class="panel-header">
+                <h3>Decodificador de Placa 1248</h3>
+                <button id="close-panel-btn" class="close-btn">&times;</button>
+            </div>
+            <div class="panel-body">
+                <p>Marque os números conforme a placa apreendida para cada palavra. Cada palavra é representada por um número de 4 dígitos (ex: 0001 a 2048).</p>
+                <div class="panels-container"></div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-secondary" onclick="resetSeed1248Panel()">Limpar</button>
+                <button class="btn btn-primary" onclick="convertAndUseSeed1248()">Converter e Usar Seed</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
