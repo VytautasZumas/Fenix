@@ -5,7 +5,7 @@ Para uso imediato, basta executar o arquivo disponibilizado (compatível apenas 
 
 Os scripts fonte estão organizados nas demais pastas, sendo necessário possuir o Python instalado e realizar a instalação das bibliotecas listadas no arquivo requirements.txt.
 
-É imprescindível para o bom funcionamento do sistema a inserção das chaves de API da Etherscan e da Trongrid, a fim de permitir a consulta correta dos endereços gerados. É possível fazer o upload de um arquivo .txt com as chaves e o mesmo deve estar no formato do arquivo modelo keys.txt do repositório.
+É imprescindível para o bom funcionamento do sistema a inserção das chaves de API da Etherscan e da Trongrid, a fim de permitir a consulta correta dos endereços gerados. É possível realizar o upload de um arquivo .txt contendo as chaves, o qual deve seguir o formato do arquivo modelo keys.txt disponível no repositório.
 
 <img width="1454" height="954" alt="image" src="https://github.com/user-attachments/assets/26a81b89-fe4e-4e94-869e-2449b502325e" />
 <p>
