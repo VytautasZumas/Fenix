@@ -1,4 +1,5 @@
-<img width="311" height="245" alt="image" src="https://github.com/user-attachments/assets/4fc99c32-37d0-485c-ab53-86e055c7b1a5" />
+![WhatsApp Image 2025-11-04 at 17 36 10](https://github.com/user-attachments/assets/227d71b8-15fe-4e01-9396-8d299e94afe5)
+
 
 # Fenix
 Ferramenta gratuita desenvolvida especificamente para apoiar investigações envolvendo criptoativos. A Fenix surgiu a partir das dificuldades enfrentadas por profissionais ao se depararem com uma seed de recuperação e a necessidade de derivar endereços em profundidade suficiente para localizar saldos ocultos em carteiras de ativos virtuais.
