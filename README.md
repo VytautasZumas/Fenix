@@ -55,6 +55,11 @@ bip39_wordlist.py
 
 Observações:
 
+Instale as bibliotecas através do arquivo requirements.txt com a lista das dependências (uma por linha) utilizando o comando:
+bash
+pip install -r requirements.txt
+Esse comando instala automaticamente todas as bibliotecas listadas no arquivo, com as versões especificadas.
+
 O Flask usa render_template para buscar index.html em templates/.​
 
 O front-end referencia CSS e JS servidos como estáticos; por padrão, armazene em static/.​
