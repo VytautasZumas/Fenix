@@ -57,8 +57,7 @@ Observações:
 
 Instale as bibliotecas através do arquivo requirements.txt com a lista das dependências (uma por linha) utilizando o comando:
 bash
-pip install -r requirements.txt
-Esse comando instala automaticamente todas as bibliotecas listadas no arquivo, com as versões especificadas.
+pip install -r requirements.txt. Este comando instala automaticamente todas as bibliotecas listadas no arquivo, com as versões especificadas.
 
 O Flask usa render_template para buscar index.html em templates/.​
 
